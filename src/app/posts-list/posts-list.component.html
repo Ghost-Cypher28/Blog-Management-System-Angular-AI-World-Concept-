@@ -1,0 +1,66 @@
+<body>
+
+    <!-- header -->
+    <header>
+      <nav class = "navbar">
+        <div class = "container">
+          <a routerLink = "/home" class = "navbar-brand">CHALO AI</a>
+          <div class = "navbar-nav">
+            <a routerLink="/home">BLOG</a>
+          </div>
+        </div>
+      </nav>
+      <div class = "banner">
+        <div class = "container">
+          <h1 class = "banner-title">
+            <span>The New </span> AI World Blog
+          </h1>
+          <p>The Future Is Here, A Future Of Flying Cars. A New World, The AI World </p>
+          <form>
+            <input type = "text" class = "search-input" placeholder="Find Your Ai, Siri, Alexa . . .">
+            <button type = "submit" class = "search-btn">
+              <i class="pi pi-search" style="font-size: 2rem"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </header>
+    <!-- end of header -->
+    <br/>
+
+    <div class="flex-container">
+        <ng-container class="flex-item" style="padding-left: 20px;" *ngFor="let item of blogPostArray">
+          <p-card [header]="item?.title" [style]="{ width: '360px' }">
+            <div class="meta">
+              <ul>
+                <li>
+                  <i class="fa fa-clock-o"></i>
+                  {{ item?.date }}
+                </li>
+                <li>
+                  <i class="pi pi-map-marker"></i>
+                  {{ item?.users }}
+                </li>
+                <li>
+                  <i class="fa fa-comments-o"></i>
+                  <a href="#">09 Comments</a>
+                </li>
+              </ul>
+            </div>
+            <ng-template pTemplate="header">
+              <img alt="Card" [src]="item?.imageUrl" />
+            </ng-template>
+            <p>
+              {{ item?.comments }}
+            </p>
+            <ng-template pTemplate="footer">
+              <p-button (click)="openDialog()" icon="pi pi-file-edit" label="Edit"></p-button>
+              <p-button (click)="deleteBlogPost(item?.id)" icon="pi pi-trash" label="Delete" styleClass="p-button-secondary prime-button-red"></p-button>
+            </ng-template>
+          </p-card>
+        </ng-container>
+    </div>
+    
+
+    
+</body>

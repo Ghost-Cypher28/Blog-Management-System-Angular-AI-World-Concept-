@@ -1,0 +1,94 @@
+<body>
+    <br/>
+    <div class="main-div">
+      <div class="register-form" fxLayout="row" fxLayoutAlign="center center" style="height: 100vh;">
+        <div class="register-form-ic-box" fxflex>
+          <div class="sol-box"> 
+              <h1>SIGN UP</h1>
+              <p>Create An Account Today</p>
+              <form class="form-box" [formGroup]="registerForm" (ngSubmit)="submitDetails()">
+                
+                <div class="field">
+                  <mat-label>Email</mat-label>
+                  <input matInput type="email" formControlName="email" placeholder="Enter your email" class="w-full" fxFlexFill>
+                  <small
+                    *ngIf="email.invalid && (email.dirty || email.touched)"
+                    class="block p-error"
+                    >
+                    <div *ngIf="email.errors?.['required']">Email is required.</div>
+                    <div *ngIf="email.errors?.['email']">Email should be valid</div>
+                  </small>
+                </div>
+        
+                
+                <div class="field">
+                  <mat-label>Display Name</mat-label>
+                  <br/>
+                  <input matInput type="text" formControlName="detailName" placeholder="Enter your display name" class="w-full">
+                </div>
+  
+                
+                <div class="field">
+                  <mat-label>Username</mat-label>
+                  <br/>
+                  <input matInput type="text" formControlName="username" placeholder="Enter your username" class="w-full">
+                  <small
+                    *ngIf="username.invalid && (username.dirty || username.touched)"
+                    class="block p-error"
+                    >
+                    <div *ngIf="username.errors?.['required']">Username is required.</div>
+                    <div *ngIf="username.errors?.['username']">Username should be valid</div>
+                  </small>
+                </div>
+                
+                
+                <div class="field">
+                  <mat-label>Password</mat-label>
+                  <br/>
+                  <input matInput type="password" formControlName="password" placeholder="Enter your password" class="w-full">
+                  <small
+                    *ngIf="password.invalid && (password.dirty || password.touched)"
+                    class="block p-error"
+                    >
+                    <div *ngIf="password.errors?.['required']">Password is required.</div>
+                    <div *ngIf="password.errors?.['password']">Password should be valid</div>
+                  </small>
+                </div>
+        
+                
+
+                <div class="field">
+                  <mat-label>Confirm Password</mat-label>
+                  <br/>
+                  <input matInput type="confirm-password" formControlName="confirmPassword" placeholder="Retype Your Password" class="w-full">
+                  <small
+                    *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)"
+                    class="block p-error"
+                    >
+                    <div *ngIf="confirmPassword.errors?.['required']">Confirm Password is required.</div>
+                    <div *ngIf="confirmPassword.errors?.['confirmPassword']">Password should match</div>
+                  </small>
+                </div>
+                
+        
+                <mat-checkbox class="form-field">I agree to the terms and conditions</mat-checkbox>
+        
+                <div class="unuttum">
+                  <a routerLink="/forgotpassword">Forgot your password?</a>
+                </div>
+        
+                <button mat-raised-button class="login-button" style="background-color: #200E3A; margin-right: 20px;" type="submit" >Continue</button>
+                
+                
+                <span class="iht"> Already have an account ?<a routerLink="/login"><font class="unuttum">Login</font></a> </span>
+              </form>
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+</body>
+

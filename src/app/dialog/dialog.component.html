@@ -1,0 +1,38 @@
+<div mat-dialog-content fxLayout="row" style="height: 100vh;">
+    <form [formGroup]="postForm">
+        <h2>Post Something....</h2>
+        <mat-form-field appearance="outline">
+            <mat-label>Title</mat-label>
+            <input formControlName="title" matInput placeholder="Blog Title">
+        </mat-form-field>
+
+       <mat-form-field appearance="outline">
+            <mat-label>Username</mat-label>
+            <input formControlName="users" matInput placeholder="Username">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <input formControlName="date" matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>
+                Comment
+            </mat-label>
+            <textarea formControlName="comments"  matInput></textarea>
+        </mat-form-field>
+
+        <div class="field">
+            <p-fileUpload mode="basic" chooseLabel="Choose" name="demo[]"  accept="image/*" type="file" (change)="onFileSelected($event)"></p-fileUpload>
+            
+           <!-- <p-button (click)="uploadFile()">Upload File</p-button>-->
+        </div>    
+
+        <div mat-dialog-actions [align]="'end'">
+            <button mat-raised-button color="primary" mat-dialog-close>Close</button>
+            <button mat-raised-button style="margin-left: 8px;" color="warn" (click)="addBlogpost()"> {{ actionBtn }} </button>
+        </div>
+    </form>
+</div>

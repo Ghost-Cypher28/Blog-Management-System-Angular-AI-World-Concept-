@@ -1,0 +1,89 @@
+<body>
+
+    <!-- header -->
+    <header>
+      <nav class = "navbar">
+        <div class = "container">
+          <a routerLink = "/home" class = "navbar-brand">CHALO AI</a>
+          <div class = "navbar-nav">
+            <a routerLink="/home">BLOG</a>
+            <p-button icon="pi pi-file-edit" label="Add Post" styleClass="p-button-secondary prime-button-red" (click)="openDialog()"></p-button>
+          </div>
+        </div>
+      </nav>
+      <div class = "banner">
+        <div class = "container">
+          <h1 class = "banner-title">
+            <span>The New </span> AI World Blog
+          </h1>
+          <p>The Future Is Here, A Future Of Flying Cars. A New World, The AI World </p>
+          <form>
+            <input type = "text" class = "search-input" placeholder="Find Your Ai, Siri, Alexa . . .">
+            <button type = "submit" class = "search-btn">
+              <i class="pi pi-search" style="font-size: 2rem"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </header>
+    <!-- end of header -->
+    
+    <!-- design -->
+    <section class = "design" id = "design">
+      <div class = "container">
+        <div class = "title">
+          <h2>Recent Arts & Designs</h2>
+          <p>recent arts & designs on the blog</p>
+        </div>
+
+        <div class = "design-content">
+          <!-- item -->
+          <div class = "design-item">
+            <div class = "design-img">
+              <img src = "images/" alt = "">
+              <span><i class = "far fa-heart"></i> 22</span>
+              <span>Art & Design</span>
+            </div>
+            <div class = "design-title">
+              
+            </div>
+          </div>
+          <!-- end of item -->
+          
+        </div>
+      </div>
+    </section>
+    <!-- end of design -->
+
+
+    <!-- blog -->
+    <section class="blog" id="blog">
+      <div class="container">
+        <div class="title">
+          <h2>Latest Blog</h2>
+          <p>recent blogs about art & design</p>
+        </div>
+        <div class="blog-content">
+          <div *ngFor="let item of BlogpostArray" class="blog-item">
+            <div class="blog-img">
+              <img [src]="item?.imageUrl">
+              <span><i class="far fa-heart"></i></span>
+            </div>
+            <div class="blog-text">
+              <h2>{{ item?.title }}</h2>
+              <p>{{ item?.comments }}</p>
+              <a href="#">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end of blog -->
+
+
+  <!-- footer -->
+  <app-footer></app-footer>
+  <!-- end of footer -->
+    
+    
+</body>
